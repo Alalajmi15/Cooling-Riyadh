@@ -13,9 +13,9 @@
 
 ## Project Overview
 
-**Cooling Riyadh** is a geospatial data science project examining the spatial relationship between urban heat, vegetation, population exposure, and the built environment across Riyadh, Saudi Arabia.
+**Cooling Riyadh** examines how urban heat, vegetation, population, and the built environment vary across Riyadh, Saudi Arabia.
 
-The project integrates satellite imagery, population estimates, building footprints, spatial analytics, machine learning, and interactive web mapping to identify areas that may warrant further evaluation for urban greening and heat-mitigation interventions.
+The project combines satellite imagery, population estimates, building footprints, spatial analysis, machine learning, and interactive mapping. The main objective is to identify parts of Riyadh where high surface temperatures, limited vegetation, population exposure, and urban development overlap.
 
 > **Research Question:**  
 > Where are the hottest and least vegetated populated areas in Riyadh, and which areas could be prioritized for further evaluation of urban greening interventions?
@@ -24,9 +24,9 @@ The project integrates satellite imagery, population estimates, building footpri
 
 ## Study Area
 
-The project focuses on the urban area of **Riyadh, Saudi Arabia**.
+The study focuses on the urban area of **Riyadh, Saudi Arabia**.
 
-A Riyadh urban boundary derived from the **Copernicus Global Human Settlement Urban Centre Database (GHS-UCDB)** is used to define the study extent and spatially constrain the analysis.
+The study boundary was derived from the **Copernicus Global Human Settlement Urban Centre Database (GHS-UCDB)** and was used to clip and organize the spatial datasets used throughout the project.
 
 ---
 
@@ -39,32 +39,32 @@ A Riyadh urban boundary derived from the **Copernicus Global Human Settlement Ur
 | Microsoft Building Footprints | Building count, footprint area, and coverage | Microsoft |
 | GHS Urban Centre Database | Riyadh study boundary | Copernicus / European Commission |
 
-All datasets were transformed, clipped, standardized, and spatially integrated for analysis at the **500 m × 500 m grid-cell level**.
+The datasets were processed and integrated using a common **500 m × 500 m analysis grid** so that variables from different sources could be compared at the same spatial scale.
 
 ---
 
-## Analytical Framework
+## Analysis Workflow
 
-The project follows a complete geospatial data science workflow.
+The analysis was completed in five main stages: data preparation, satellite processing, built-environment analysis, population integration, and spatial modeling.
 
 ### 1. Data Preparation
 
-Raw spatial datasets were cleaned, validated, reprojected, and clipped to the Riyadh study boundary.
+Spatial datasets were cleaned, checked, reprojected where necessary, and clipped to the Riyadh study boundary.
 
 ### 2. Satellite Processing
 
-Landsat Collection 2 Level-2 imagery was processed to derive:
+Landsat Collection 2 Level-2 imagery was used to calculate:
 
 - **Land Surface Temperature (LST)**
 - **Normalized Difference Vegetation Index (NDVI)**
 
-Quality Assessment information was used to reduce the influence of clouds and invalid pixels.
+Quality Assessment information was used to exclude invalid pixels and reduce the effect of clouds.
 
 ### 3. Built Environment Analysis
 
-Microsoft Building Footprints were spatially filtered to Riyadh and aggregated to the analysis grid.
+Microsoft Building Footprints were clipped to Riyadh and summarized within the 500 m analysis grid.
 
-For each 500 m cell, the analysis calculated:
+For each grid cell, the following variables were calculated:
 
 - Building count
 - Total building footprint area
@@ -72,15 +72,17 @@ For each 500 m cell, the analysis calculated:
 
 ### 4. Population Exposure
 
-WorldPop population estimates were integrated into the same spatial grid to estimate the population represented within each analysis cell.
+WorldPop population estimates were summarized within the same 500 m grid.
 
-### 5. Spatial Data Integration
+This makes it possible to compare population exposure with heat, vegetation, and building conditions using one consistent spatial unit.
 
-The final analytical dataset contains approximately:
+### 5. Final Spatial Dataset
+
+After integrating the different datasets, the final analysis contained approximately:
 
 **4,700 valid 500 m grid cells**
 
-with integrated measurements for:
+Each valid cell includes information on:
 
 - Surface temperature
 - Vegetation
@@ -93,16 +95,18 @@ with integrated measurements for:
 
 ### K-Means Urban Clustering
 
-K-Means clustering was used as the project's primary unsupervised machine-learning component.
+K-Means clustering was used to explore whether grid cells with similar environmental and urban characteristics could be grouped together.
 
-Four standardized variables were used:
+Four standardized variables were included in the clustering:
 
 1. Mean Land Surface Temperature
 2. Mean NDVI
 3. Population
 4. Building Coverage Percentage
 
-After evaluating alternative cluster counts, the final model uses **five urban cluster profiles**:
+Several cluster counts were examined before selecting a final model with **five urban profiles**.
+
+The five profiles were interpreted as:
 
 - **Hot Dense Built-Up**
 - **Dense Populated Urban**
@@ -110,15 +114,20 @@ After evaluating alternative cluster counts, the final model uses **five urban c
 - **Greener Cooler Areas**
 - **Cooler Lower-Density**
 
-The clustering is used to identify recurring urban environmental profiles rather than predefined administrative or land-use categories.
+These names were assigned after reviewing the characteristics of each cluster. They are descriptive labels rather than official land-use classifications.
 
 ---
 
 ## Greening Priority Screening
 
-A spatial multicriteria priority score was developed to identify locations combining environmental heat, limited vegetation, population exposure, and built-environment intensity.
+A separate priority score was calculated to identify grid cells where several conditions occur together:
 
-### Priority Weights
+- Higher surface temperature
+- Lower vegetation
+- Higher population
+- Greater building coverage
+
+The weighting framework used in the project is:
 
 | Indicator | Weight |
 |---|---:|
@@ -127,7 +136,7 @@ A spatial multicriteria priority score was developed to identify locations combi
 | Population Exposure | 25% |
 | Building Coverage | 10% |
 
-The resulting score was classified into five relative priority levels:
+The final score was divided into five relative priority classes:
 
 - Very Low
 - Low
@@ -135,28 +144,30 @@ The resulting score was classified into five relative priority levels:
 - High
 - Very High
 
-### Important Interpretation
+### Interpretation
 
-The priority score is a **spatial screening framework**, not a direct tree-planting recommendation.
+The priority score is intended as a **screening tool**.
 
-The weights are analyst-defined rather than statistically estimated and should therefore be interpreted as a transparent decision-support framework for identifying locations requiring additional investigation.
+It does not mean that every high-priority grid cell should automatically receive new trees or other greening interventions.
+
+The weights were selected for this project and were not statistically estimated. The results are therefore most useful for identifying areas that may deserve additional investigation.
 
 ---
 
 ## AI-Assisted Priority Interpretation
 
-The machine-learning clusters and the independently calculated priority score were compared to evaluate how strongly different urban profiles are associated with high-priority areas.
+The K-Means clusters were compared with the independently calculated priority classes to examine whether particular urban profiles were more frequently associated with high-priority areas.
 
-The strongest associations were observed within:
+The largest shares of **High** and **Very High** priority cells occurred within:
 
 - **Hot Dense Built-Up**
 - **Dense Populated Urban**
 
-This step supports interpretation of the spatial priority results.
+K-Means was used only to identify recurring urban profiles.
 
-It does **not** replace, predict, or recalculate the priority score.
+The priority score was calculated separately using the weighted indicators described above.
 
-This distinction is important because the K-Means model represents the project's machine-learning component, while the priority index represents a separate weighted spatial decision-support framework.
+The clustering therefore helps interpret the priority results, but it does not generate or predict the priority score.
 
 ---
 
@@ -176,33 +187,31 @@ This distinction is important because the K-Means model represents the project's
 
 ## Interactive Web Visualization
 
-The project includes an interactive web-based visualization platform developed with **Quarto**.
-
-The website contains the following sections:
+A Quarto website was developed to present the main maps, results, and methods from the project.
 
 ### Urban Heat
 
-Interactive visualization of Landsat-derived surface temperature patterns across Riyadh.
+Shows the spatial distribution of Landsat-derived Land Surface Temperature across Riyadh.
 
 ### Vegetation & Buildings
 
-Exploration of NDVI and building coverage across the city.
+Includes interactive maps of NDVI and building coverage.
 
 ### Population Exposure
 
-Spatial visualization of estimated population within the 500 m analysis grid.
+Shows estimated population within the 500 m analysis grid.
 
 ### AI & Priority Areas
 
-Interactive exploration of:
+Includes interactive maps of:
 
-- K-Means urban cluster profiles
-- AI-assisted priority associations
-- Greening priority screening
+- K-Means urban profiles
+- Cluster-priority associations
+- Greening priority levels
 
 ### Methods & Data
 
-Documentation of datasets, workflow, weighting assumptions, machine-learning methods, and study limitations.
+Documents the data sources, workflow, assumptions, machine-learning approach, weighting framework, and main limitations.
 
 **Live Website:** GitHub Pages link will be added after deployment.
 
@@ -247,6 +256,7 @@ Final Project/
 │   ├── styles.css
 │   └── _quarto.yml
 │
+├── .gitignore
 └── README.md
 ```
 
@@ -256,7 +266,7 @@ Final Project/
 
 ### `01_data_setup_and_building_footprints.ipynb`
 
-Primary geospatial data pipeline:
+This notebook contains the main data-preparation workflow, including:
 
 - Riyadh boundary preparation
 - Microsoft Building Footprint processing
@@ -264,26 +274,26 @@ Primary geospatial data pipeline:
 - Landsat processing
 - NDVI calculation
 - Land Surface Temperature calculation
-- 500 m analysis-grid construction
-- Final dataset integration
+- 500 m grid construction
+- Dataset integration
 - Exploratory spatial analysis
 
 ### `02_ai_clustering_and_priority_analysis.ipynb`
 
-Contains:
+This notebook contains:
 
 - Variable preparation
 - Standardization
 - K-Means evaluation
-- Five-cluster model
-- Urban-profile interpretation
-- Weighted priority framework
+- Final five-cluster model
+- Cluster interpretation
+- Weighted priority calculation
 - Priority classification
-- Final analytical maps
+- Static analytical maps
 
 ### `03_interactive_web_maps.ipynb`
 
-Produces interactive web maps for:
+This notebook creates interactive maps for:
 
 - Land Surface Temperature
 - Vegetation
@@ -294,7 +304,7 @@ Produces interactive web maps for:
 
 ### `04_ai_assisted_priority_analysis.ipynb`
 
-Evaluates the relationship between machine-learning-derived urban profiles and the spatial priority framework.
+This notebook compares the K-Means urban profiles with the final priority classes and examines how strongly each profile is associated with High and Very High priority areas.
 
 ---
 
@@ -344,22 +354,22 @@ The project uses a dedicated Conda environment:
 conda activate cooling-riyadh
 ```
 
-The analytical workflow should be executed in notebook order:
+The notebooks are organized in the following order:
 
 ```text
 01 → Data preparation and integration
 02 → Machine learning and priority analysis
 03 → Interactive maps
-04 → AI-assisted interpretation
+04 → Cluster-priority interpretation
 ```
 
-The Quarto website can then be rendered from the `website` directory using:
+The Quarto website can be rendered from the `website` directory using:
 
 ```bash
 quarto render
 ```
 
-For local preview:
+For a local preview:
 
 ```bash
 quarto preview
@@ -367,54 +377,54 @@ quarto preview
 
 ---
 
-## Methodological Limitations
-
-Several limitations should be considered when interpreting the project results.
+## Limitations
 
 ### Satellite Timing
 
-Land Surface Temperature represents conditions captured by selected Landsat observations rather than continuous long-term thermal conditions.
+The Land Surface Temperature results represent conditions observed during the selected Landsat scenes rather than a continuous or long-term record of urban heat.
 
 ### Spatial Resolution
 
-The 500 m analysis grid improves cross-dataset integration but generalizes fine-scale variation within individual cells.
+The 500 m grid provides a common unit for combining several datasets, but it also generalizes smaller variations that may occur within individual cells.
 
 ### Population Estimates
 
-WorldPop represents modeled population estimates rather than official neighborhood-level census counts.
+WorldPop provides modeled population estimates rather than official neighborhood-level census counts.
 
 ### Building Footprints
 
-Building coverage represents mapped footprint geometry and does not directly account for building height, occupancy, materials, or energy use.
+Building footprint coverage represents the horizontal area occupied by mapped buildings. It does not account for building height, occupancy, construction materials, or energy use.
 
 ### Priority Weights
 
-The weighting framework is analyst-defined and intended for transparent spatial screening rather than causal inference.
+The priority weights were selected for this project and were not estimated from observed intervention outcomes.
 
 ### Intervention Suitability
 
-High-priority cells do not automatically represent suitable locations for tree planting or other interventions. Local land ownership, infrastructure, water availability, urban design, utilities, and implementation feasibility require additional investigation.
+A High or Very High priority score does not automatically mean that a location is suitable for tree planting.
+
+Additional information would be needed before any intervention, including land ownership, utilities, water availability, street design, infrastructure constraints, and implementation feasibility.
 
 ---
 
 ## Academic Context
 
-This project was developed as part of:
+This project was developed for:
 
 **MUSA 5500 — Geospatial Data Science in Python**  
 Master of Urban Spatial Analytics  
 Weitzman School of Design  
 University of Pennsylvania
 
-The project demonstrates a complete geospatial data science workflow integrating:
+The project applies several methods covered in geospatial data science, including:
 
-- Raster analysis
+- Raster processing
 - Vector analysis
-- Multiple spatial datasets
+- Integration of multiple spatial datasets
 - Machine learning
-- Spatial decision-support analysis
+- Spatial prioritization
 - Interactive web mapping
-- Reproducible analytical notebooks
+- Reproducible notebook workflows
 
 ---
 
@@ -459,13 +469,13 @@ Areas of interest:
 
 ## Data Attribution
 
-This repository contains analytical code and project outputs developed for academic purposes.
+This repository contains code and derived project outputs developed for academic purposes.
 
-Original third-party datasets remain subject to the terms and licensing conditions of their respective providers, including:
+The original datasets remain subject to the terms and licensing conditions of their respective providers:
 
 - U.S. Geological Survey
 - WorldPop
 - Microsoft
 - Copernicus / European Commission
 
-Users should consult the original data providers before redistributing source datasets.
+Source datasets should be obtained from the original providers where required.
