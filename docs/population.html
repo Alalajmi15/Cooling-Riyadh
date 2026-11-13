@@ -126,6 +126,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Methods &amp; Data</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index-ar.html"> 
+<span class="menu-text">العربية</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -198,6 +204,24 @@ ul.task-list li input[type="checkbox"] {
   opacity: 0.18;
   margin: 0;
   padding: 0;
+}
+
+body.arabic-page .navbar-container {
+  direction: rtl !important;
+}
+
+body.arabic-page .navbar-nav {
+  direction: rtl !important;
+}
+
+body.arabic-page .navbar-brand {
+  margin-right: 0 !important;
+  margin-left: 34px !important;
+}
+
+body.arabic-page .navbar-brand img {
+  margin-right: 0 !important;
+  margin-left: 14px !important;
 }
 
 @media (max-width: 1000px) {
@@ -718,6 +742,94 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const path = window.location.pathname.toLowerCase();
+
+  const isArabic =
+    path.endsWith("index-ar.html") ||
+    path.endsWith("urban-heat-ar.html") ||
+    path.endsWith("vegetation-buildings-ar.html") ||
+    path.endsWith("population-ar.html") ||
+    path.endsWith("priority-ar.html") ||
+    path.endsWith("methods-ar.html");
+
+  if (!isArabic) return;
+
+  document.body.classList.add("arabic-page");
+  document.documentElement.setAttribute("lang", "ar");
+  document.documentElement.setAttribute("dir", "rtl");
+
+  const links = document.querySelectorAll(".navbar a.nav-link");
+
+  links.forEach(function(link) {
+
+    const href = link.getAttribute("href") || "";
+
+    if (href.endsWith("index.html")) {
+      link.textContent = "الرئيسية";
+      link.setAttribute("href", "index-ar.html");
+    }
+
+    else if (href.includes("urban-heat")) {
+      link.textContent = "الحرارة الحضرية";
+      link.setAttribute("href", "urban-heat-ar.html");
+    }
+
+    else if (href.includes("vegetation-buildings")) {
+      link.textContent = "الغطاء النباتي والمباني";
+      link.setAttribute("href", "vegetation-buildings-ar.html");
+    }
+
+    else if (href.includes("population")) {
+      link.textContent = "التعرض السكاني";
+      link.setAttribute("href", "population-ar.html");
+    }
+
+    else if (href.includes("priority")) {
+      link.textContent = "الذكاء الاصطناعي ومناطق الأولوية";
+      link.setAttribute("href", "priority-ar.html");
+    }
+
+    else if (href.includes("methods")) {
+      link.textContent = "المنهجية والبيانات";
+      link.setAttribute("href", "methods-ar.html");
+    }
+
+    else if (href.includes("index-ar")) {
+
+      link.textContent = "English";
+
+      if (path.endsWith("urban-heat-ar.html")) {
+        link.setAttribute("href", "urban-heat.html");
+      }
+
+      else if (path.endsWith("vegetation-buildings-ar.html")) {
+        link.setAttribute("href", "vegetation-buildings.html");
+      }
+
+      else if (path.endsWith("population-ar.html")) {
+        link.setAttribute("href", "population.html");
+      }
+
+      else if (path.endsWith("priority-ar.html")) {
+        link.setAttribute("href", "priority.html");
+      }
+
+      else if (path.endsWith("methods-ar.html")) {
+        link.setAttribute("href", "methods.html");
+      }
+
+      else {
+        link.setAttribute("href", "index.html");
+      }
+    }
+
+  });
+
+});
+</script>
 
 
 

@@ -1,0 +1,200 @@
+---
+title: "الحرارة الحضرية في الرياض"
+page-layout: full
+lang: ar
+dir: rtl
+---
+
+<style>
+
+html,
+body {
+  direction: rtl;
+}
+
+body {
+  text-align: right;
+}
+
+.quarto-title-block,
+#title-block-header {
+  display: none !important;
+}
+
+.ar-page {
+  width: min(1180px, 94vw);
+  margin: 0 auto 3rem auto;
+}
+
+.ar-title {
+  text-align: center;
+  color: #174D38;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.ar-intro {
+  width: min(900px, 92vw);
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  color: #3A3A3A;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+.ar-section-title {
+  color: #174D38;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 2rem 0 0.8rem 0;
+}
+
+.ar-text {
+  color: #3A3A3A;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.heat-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.heat-stat {
+  background: #FAF7F0;
+  border: 1px solid #E3D6B8;
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  color: #B8452A;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  display: block;
+  color: #65766D;
+  font-size: 0.9rem;
+}
+
+.map-frame {
+  width: 100%;
+  height: 720px;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(23, 77, 56, 0.10);
+  background: #ffffff;
+}
+
+.note-box {
+  background: #FAF7F0;
+  border-right: 4px solid #C5A45A;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-top: 1.5rem;
+  color: #3A3A3A;
+  line-height: 1.9;
+}
+
+@media (max-width: 800px) {
+
+  .heat-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    height: 560px;
+  }
+
+  .ar-title {
+    font-size: 2.2rem;
+  }
+}
+
+</style>
+
+
+<div class="ar-page">
+
+<div class="ar-title">
+الحرارة الحضرية في الرياض
+</div>
+
+<div class="ar-intro">
+
+توضح هذه الصفحة التوزيع المكاني لحرارة سطح الأرض في مدينة الرياض باستخدام بيانات
+<strong>Landsat Collection 2 Level-2</strong>.
+
+تساعد قراءة أنماط الحرارة المكانية على تحديد المناطق الأكثر سخونة داخل المدينة،
+ومقارنتها لاحقًا مع الغطاء النباتي، والتعرض السكاني، والبيئة المبنية.
+
+</div>
+
+
+<div class="heat-stats">
+
+<div class="heat-stat">
+<span class="stat-number">≈ 51.1 °م</span>
+<span class="stat-label">متوسط حرارة سطح الأرض</span>
+</div>
+
+<div class="heat-stat">
+<span class="stat-number">≈ 40.7 °م</span>
+<span class="stat-label">أدنى قيمة ضمن خلايا التحليل</span>
+</div>
+
+<div class="heat-stat">
+<span class="stat-number">≈ 57.7 °م</span>
+<span class="stat-label">أعلى قيمة ضمن خلايا التحليل</span>
+</div>
+
+</div>
+
+
+<div class="ar-section-title">
+استكشاف حرارة سطح الأرض
+</div>
+
+<div class="ar-text">
+
+تعرض الخريطة التفاعلية أدناه أنماط حرارة سطح الأرض المستخرجة من صور Landsat
+ضمن حدود منطقة الدراسة في الرياض.
+
+تمثل الألوان الأكثر دفئًا قيمًا أعلى لحرارة سطح الأرض، بينما تمثل الألوان الأفتح
+قيمًا أقل نسبيًا.
+
+يمكن الضغط على أي موقع داخل منطقة الدراسة لعرض قيمة حرارة سطح الأرض المقدرة
+في ذلك الموقع وتصنيفها الحراري.
+
+</div>
+
+
+<iframe
+  src="assets/maps/Riyadh_LST_Interactive.html"
+  class="map-frame"
+  loading="lazy">
+</iframe>
+
+
+<div class="note-box">
+
+<strong>ملاحظة تفسيرية:</strong>
+حرارة سطح الأرض لا تمثل درجة حرارة الهواء التي يشعر بها الإنسان مباشرة.
+وهي تقيس الإشعاع الحراري الصادر من سطح الأرض كما ترصده الأقمار الصناعية.
+لذلك تستخدم هنا كمؤشر مكاني لمقارنة الأنماط الحرارية بين أجزاء مختلفة من الرياض.
+
+</div>
+
+</div>

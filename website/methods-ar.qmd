@@ -1,0 +1,471 @@
+---
+title: "المنهجية والبيانات"
+page-layout: full
+lang: ar
+dir: rtl
+---
+
+<style>
+
+html,
+body {
+  direction: rtl;
+}
+
+body {
+  text-align: right;
+}
+
+.quarto-title-block,
+#title-block-header {
+  display: none !important;
+}
+
+.ar-page {
+  width: min(1180px, 94vw);
+  margin: 0 auto 3rem auto;
+}
+
+.ar-title {
+  text-align: center;
+  color: #174D38;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.ar-intro {
+  width: min(940px, 92vw);
+  margin: 0 auto 2.2rem auto;
+  text-align: center;
+  color: #3A3A3A;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+.ar-section-title {
+  color: #174D38;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 2.2rem 0 0.9rem 0;
+}
+
+.ar-text {
+  color: #3A3A3A;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 1.4rem 0 2rem 0;
+}
+
+.source-card {
+  background: #FAF7F0;
+  border: 1px solid #E3D6B8;
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.source-card h3 {
+  color: #174D38;
+  margin: 0 0 0.65rem 0;
+  font-size: 1.1rem;
+}
+
+.source-card p {
+  color: #4A4A4A;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 1.4rem 0 2rem 0;
+}
+
+.workflow-step {
+  background: #FFFFFF;
+  border: 1px solid #DDD3BF;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.workflow-number {
+  display: block;
+  color: #C5A45A;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.workflow-label {
+  display: block;
+  color: #174D38;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.method-box {
+  background: #FAF7F0;
+  border-right: 4px solid #174D38;
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  margin: 1.1rem 0;
+}
+
+.method-box h3 {
+  color: #174D38;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.method-box p {
+  color: #3A3A3A;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.weight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 1.3rem 0 2rem 0;
+}
+
+.weight-card {
+  background: #FFFFFF;
+  border: 1px solid #E3D6B8;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.weight-value {
+  display: block;
+  color: #B8452A;
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.weight-label {
+  color: #65766D;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.limitations {
+  background: #F5F7F6;
+  border-right: 4px solid #C5A45A;
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+  margin: 1.4rem 0 2rem 0;
+  color: #3A3A3A;
+  line-height: 2;
+}
+
+@media (max-width: 1000px) {
+
+  .workflow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+
+  .source-grid,
+  .workflow,
+  .weight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ar-title {
+    font-size: 2.2rem;
+  }
+}
+
+</style>
+
+
+<div class="ar-page">
+
+<div class="ar-title">
+المنهجية والبيانات
+</div>
+
+<div class="ar-intro">
+
+يعتمد مشروع <strong>تبريد الرياض</strong> على دمج عدة مصادر للبيانات الجغرافية
+ضمن إطار مكاني موحد لدراسة الحرارة الحضرية، والغطاء النباتي، والبيئة المبنية،
+والتعرض السكاني.
+
+تم إجراء التحليل باستخدام شبكة منتظمة بحجم
+<strong>500 × 500 متر</strong>
+لتسهيل المقارنة بين جميع المتغيرات على نفس الوحدة المكانية.
+
+</div>
+
+
+<div class="ar-section-title">
+مصادر البيانات
+</div>
+
+<div class="source-grid">
+
+<div class="source-card">
+<h3>Landsat Collection 2 Level-2</h3>
+<p>
+استخدمت صور Landsat لاشتقاق حرارة سطح الأرض
+<strong>LST</strong>
+ومؤشر الغطاء النباتي
+<strong>NDVI</strong>.
+</p>
+</div>
+
+<div class="source-card">
+<h3>WorldPop</h3>
+<p>
+استخدمت بيانات WorldPop لتقدير التوزيع المكاني للسكان
+وتجميع عدد السكان داخل خلايا شبكة التحليل.
+</p>
+</div>
+
+<div class="source-card">
+<h3>Microsoft Building Footprints</h3>
+<p>
+استخدمت بصمات المباني لحساب عدد المباني،
+وإجمالي مساحة البصمات، ونسبة تغطية المباني داخل كل خلية.
+</p>
+</div>
+
+<div class="source-card">
+<h3>GHS Urban Centre Database</h3>
+<p>
+استخدمت قاعدة بيانات المراكز الحضرية العالمية
+لتحديد حدود منطقة الدراسة الحضرية لمدينة الرياض.
+</p>
+</div>
+
+</div>
+
+
+<div class="ar-section-title">
+سير العمل التحليلي
+</div>
+
+<div class="workflow">
+
+<div class="workflow-step">
+<span class="workflow-number">1</span>
+<span class="workflow-label">جمع البيانات</span>
+</div>
+
+<div class="workflow-step">
+<span class="workflow-number">2</span>
+<span class="workflow-label">المعالجة المكانية</span>
+</div>
+
+<div class="workflow-step">
+<span class="workflow-number">3</span>
+<span class="workflow-label">التجميع على شبكة 500 م</span>
+</div>
+
+<div class="workflow-step">
+<span class="workflow-number">4</span>
+<span class="workflow-label">التعلم الآلي وتحليل الأولوية</span>
+</div>
+
+<div class="workflow-step">
+<span class="workflow-number">5</span>
+<span class="workflow-label">الخرائط والتفسير</span>
+</div>
+
+</div>
+
+
+<div class="ar-section-title">
+معالجة بيانات Landsat
+</div>
+
+<div class="method-box">
+<h3>حرارة سطح الأرض LST</h3>
+<p>
+تم استخدام منتج حرارة السطح من Landsat Collection 2 Level-2
+وتحويل القيم إلى درجات مئوية،
+ثم تلخيص القيم داخل خلايا شبكة التحليل.
+</p>
+</div>
+
+<div class="method-box">
+<h3>مؤشر NDVI</h3>
+<p>
+تم حساب مؤشر NDVI باستخدام النطاقات الطيفية الحمراء
+وتحت الحمراء القريبة،
+ثم تلخيص متوسط المؤشر داخل كل خلية.
+</p>
+</div>
+
+
+<div class="ar-section-title">
+شبكة التحليل المكانية
+</div>
+
+<div class="ar-text">
+
+تم إنشاء شبكة منتظمة بحجم
+<strong>500 متر × 500 متر</strong>
+لتكون الوحدة الأساسية للتحليل.
+
+لكل خلية تم حساب أو تجميع متغيرات رئيسية تشمل:
+
+- متوسط حرارة سطح الأرض
+- متوسط NDVI
+- عدد السكان التقديري
+- نسبة تغطية المباني
+- عدد المباني
+
+بعد إزالة الخلايا التي لا تحتوي على بيانات صالحة،
+احتوى التحليل النهائي على حوالي
+<strong>4,700 خلية</strong>.
+
+</div>
+
+
+<div class="ar-section-title">
+التعلم الآلي: K-Means
+</div>
+
+<div class="method-box">
+<h3>المتغيرات المستخدمة</h3>
+<p>
+تم استخدام أربعة متغيرات في نموذج K-Means:
+حرارة سطح الأرض، NDVI، عدد السكان، ونسبة تغطية المباني.
+تم توحيد المتغيرات باستخدام StandardScaler قبل التجميع
+حتى لا يسيطر متغير بسبب اختلاف وحدات القياس.
+</p>
+</div>
+
+<div class="method-box">
+<h3>عدد المجموعات</h3>
+<p>
+بعد تقييم عدة حلول للتجميع،
+تم اختيار نموذج يحتوي على
+<strong>5 مجموعات</strong>
+تمثل أنماطًا حضرية مختلفة داخل الرياض.
+</p>
+</div>
+
+
+<div class="ar-section-title">
+منهجية حساب الأولوية
+</div>
+
+<div class="ar-text">
+
+تم إنشاء مؤشر مستقل للأولوية باستخدام أربعة مكونات.
+هذه الأوزان تم تحديدها كجزء من تصميم التحليل
+وليست ناتجة عن تعلم آلي أو تقدير إحصائي.
+
+</div>
+
+<div class="weight-grid">
+
+<div class="weight-card">
+<span class="weight-value">35%</span>
+<span class="weight-label">حرارة سطح الأرض</span>
+</div>
+
+<div class="weight-card">
+<span class="weight-value">30%</span>
+<span class="weight-label">انخفاض الغطاء النباتي</span>
+</div>
+
+<div class="weight-card">
+<span class="weight-value">25%</span>
+<span class="weight-label">التعرض السكاني</span>
+</div>
+
+<div class="weight-card">
+<span class="weight-value">10%</span>
+<span class="weight-label">تغطية المباني</span>
+</div>
+
+</div>
+
+
+<div class="ar-section-title">
+التحليل المدعوم بالذكاء الاصطناعي
+</div>
+
+<div class="ar-text">
+
+بعد إنشاء مجموعات K-Means وحساب مؤشر الأولوية بصورة مستقلة،
+تمت مقارنة نتائج المجموعات مع مستويات الأولوية.
+
+الهدف من هذه الخطوة هو تفسير أنواع البيئات الحضرية
+التي ترتبط بشكل أكبر بالمناطق ذات الأولوية المرتفعة،
+وليس استخدام K-Means لإنتاج درجة الأولوية نفسها.
+
+</div>
+
+
+<div class="ar-section-title">
+القيود الرئيسية
+</div>
+
+<div class="limitations">
+
+هذا المشروع هو أداة تحليل مكاني لتحديد مناطق تستحق مزيدًا من التقييم،
+وليس خطة تنفيذ مباشرة لزراعة الأشجار أو التدخلات الحضرية.
+
+أي قرار تنفيذي يحتاج إلى بيانات إضافية غير متوفرة في هذا التحليل،
+مثل ملكية الأراضي، وتوفر مياه الري، وشبكات المرافق،
+وعرض الشوارع، والفراغات العامة، واستخدامات الأراضي،
+وملاءمة أنواع النباتات للظروف المحلية.
+
+كما أن حرارة سطح الأرض المستخرجة من الأقمار الصناعية
+لا تمثل درجة حرارة الهواء مباشرة،
+وبيانات السكان والمباني هي تقديرات مكانية قد تحتوي على درجات مختلفة من عدم اليقين.
+
+</div>
+
+
+<div class="ar-section-title">
+الأدوات المستخدمة
+</div>
+
+<div class="ar-text">
+
+تم تنفيذ المشروع باستخدام مجموعة من أدوات علوم البيانات الجغرافية المكانية،
+منها:
+
+- Python
+- GeoPandas
+- Rasterio
+- Shapely
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Folium
+- Quarto
+
+</div>
+
+</div>

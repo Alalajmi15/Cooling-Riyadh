@@ -16,5 +16,23 @@
   },
   "methods.qmd": {
     "methods.html": "9403bf4c"
+  },
+  "index-ar.qmd": {
+    "index-ar.html": "f0fcc90e"
+  },
+  "urban-heat-ar.qmd": {
+    "urban-heat-ar.html": "37667222"
+  },
+  "vegetation-buildings-ar.qmd": {
+    "vegetation-buildings-ar.html": "e3ec6f0a"
+  },
+  "population-ar.qmd": {
+    "population-ar.html": "b9a63160"
+  },
+  "priority-ar.qmd": {
+    "priority-ar.html": "274503cb"
+  },
+  "methods-ar.qmd": {
+    "methods-ar.html": "9d9ae31a"
   }
 }
