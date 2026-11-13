@@ -184,6 +184,22 @@ ul.task-list li input[type="checkbox"] {
   white-space: nowrap;
 }
 
+/* Active page underline */
+.navbar .nav-link.active {
+  position: relative;
+}
+
+.navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -4px;
+  height: 4px;
+  background: #C5A45A;
+  border-radius: 999px;
+}
+
 .najdi-line-banner {
   width: 100%;
   height: 185px;
@@ -1227,44 +1243,98 @@ document.addEventListener("DOMContentLoaded", function () {
   document.documentElement.setAttribute("lang", "ar");
   document.documentElement.setAttribute("dir", "rtl");
 
+  const brandTitle = document.querySelector(".navbar-title");
+
+  if (brandTitle) {
+    brandTitle.textContent = "تبريد الرياض";
+  }
+
   const links = document.querySelectorAll(".navbar a.nav-link");
 
   links.forEach(function(link) {
 
-    const href = link.getAttribute("href") || "";
+    link.classList.remove("active");
 
-    if (href.endsWith("index.html")) {
+    const href = link.getAttribute("href") || "";
+    const currentText = link.textContent.trim();
+
+    if (
+      currentText === "Home" ||
+      href === "./" ||
+      href.endsWith("index.html")
+    ) {
       link.textContent = "الرئيسية";
       link.setAttribute("href", "index-ar.html");
+
+      if (path.endsWith("index-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("urban-heat")) {
+    else if (
+      currentText === "Urban Heat" ||
+      href.includes("urban-heat")
+    ) {
       link.textContent = "الحرارة الحضرية";
       link.setAttribute("href", "urban-heat-ar.html");
+
+      if (path.endsWith("urban-heat-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("vegetation-buildings")) {
+    else if (
+      currentText === "Vegetation & Buildings" ||
+      href.includes("vegetation-buildings")
+    ) {
       link.textContent = "الغطاء النباتي والمباني";
       link.setAttribute("href", "vegetation-buildings-ar.html");
+
+      if (path.endsWith("vegetation-buildings-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("population")) {
+    else if (
+      currentText === "Population Exposure" ||
+      href.includes("population")
+    ) {
       link.textContent = "التعرض السكاني";
       link.setAttribute("href", "population-ar.html");
+
+      if (path.endsWith("population-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("priority")) {
+    else if (
+      currentText === "AI & Priority Areas" ||
+      href.includes("priority")
+    ) {
       link.textContent = "الذكاء الاصطناعي ومناطق الأولوية";
       link.setAttribute("href", "priority-ar.html");
+
+      if (path.endsWith("priority-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("methods")) {
+    else if (
+      currentText === "Methods & Data" ||
+      href.includes("methods")
+    ) {
       link.textContent = "المنهجية والبيانات";
       link.setAttribute("href", "methods-ar.html");
+
+      if (path.endsWith("methods-ar.html")) {
+        link.classList.add("active");
+      }
     }
 
-    else if (href.includes("index-ar")) {
-
+    else if (
+      currentText === "العربية" ||
+      href.includes("index-ar")
+    ) {
       link.textContent = "English";
 
       if (path.endsWith("urban-heat-ar.html")) {
