@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Cooling Riyadh"
+  navbar:
+    background: "#174D38"
+    foreground: "#F0E7D4"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: urban-heat.qmd
+        text: Urban Heat
+      - href: vegetation-buildings.qmd
+        text: Vegetation & Buildings
+      - href: population.qmd
+        text: Population Exposure
+      - href: priority.qmd
+        text: AI & Priority Areas
+      - href: methods.qmd
+        text: Methods & Data
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto

@@ -1,0 +1,77 @@
+---
+page-layout: full
+toc: false
+---
+
+<style>
+.section-hero,
+.map-section {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 92vw);
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+}
+
+.section-hero {
+  padding: 3rem 2rem 2rem 2rem;
+}
+
+.map-section {
+  padding: 1rem 2rem 4rem 2rem;
+}
+
+.section-hero h1,
+.map-section h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-hero p,
+.map-section > p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.interactive-map-frame {
+  width: min(1100px, 92vw);
+  height: 720px;
+  margin: 2rem auto 0 auto;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(94, 58, 120, 0.12);
+  display: block;
+}
+</style>
+
+::: {.section-hero}
+
+# Population Exposure
+
+Population distribution adds an important human dimension to the spatial analysis of Riyadh. This section examines the estimated number of residents within each 500 m analysis grid cell using WorldPop population data.
+
+Understanding where population is concentrated helps identify areas where urban heat and limited vegetation may affect larger numbers of residents.
+
+:::
+
+::: {.map-section}
+
+## Explore Population Distribution
+
+The interactive map below shows estimated population across the 500 m analysis grid. Darker purple cells indicate higher estimated population, while lighter cells represent lower population levels.
+
+Click any location within the study area to inspect the original estimated population for that grid cell and its relative population level.
+
+<iframe
+  src="assets/maps/Riyadh_Population_Exposure_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Population Exposure Map of Riyadh">
+</iframe>
+
+:::

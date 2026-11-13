@@ -1,0 +1,20 @@
+{
+  "index.qmd": {
+    "index.html": "60fb123d"
+  },
+  "urban-heat.qmd": {
+    "urban-heat.html": "ccca4659"
+  },
+  "vegetation-buildings.qmd": {
+    "vegetation-buildings.html": "e5a9729d"
+  },
+  "population.qmd": {
+    "population.html": "2ee34fee"
+  },
+  "priority.qmd": {
+    "priority.html": "4af3355e"
+  },
+  "methods.qmd": {
+    "methods.html": "9403bf4c"
+  }
+}

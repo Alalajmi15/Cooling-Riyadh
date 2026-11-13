@@ -1,0 +1,210 @@
+---
+page-layout: full
+toc: false
+---
+
+<style>
+.section-hero,
+.map-section,
+.analysis-section {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 92vw);
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+}
+
+.section-hero {
+  padding: 2.6rem 2rem 1.6rem 2rem;
+}
+
+.analysis-section,
+.map-section {
+  padding: 0.8rem 2rem 2.8rem 2rem;
+}
+
+.section-hero h1,
+.analysis-section h2,
+.map-section h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-hero p,
+.analysis-section > p,
+.map-section > p {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.interactive-map-frame {
+  width: min(1100px, 92vw);
+  height: 720px;
+  margin: 1.6rem auto 0 auto;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(23, 77, 56, 0.12);
+  display: block;
+}
+
+.method-note {
+  max-width: 900px;
+  margin: 1.25rem auto 0 auto;
+  padding: 1rem 1.25rem;
+  background: #FAF7F0;
+  border-left: 4px solid #C5A45A;
+  border-radius: 8px;
+  text-align: left;
+  color: #2B2B2B;
+  line-height: 1.7;
+}
+
+.weight-grid {
+  width: min(900px, 90vw);
+  margin: 1.5rem auto 1.8rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.weight-card {
+  background: #FAF7F0;
+  border: 1px solid #E3D6B8;
+  border-radius: 12px;
+  padding: 1rem 0.8rem;
+  box-shadow: 0 5px 14px rgba(23, 77, 56, 0.06);
+}
+
+.weight-card .weight {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #174D38;
+  margin-bottom: 0.35rem;
+}
+
+.weight-card .label {
+  display: block;
+  font-size: 0.96rem;
+  color: #2B2B2B;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .weight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .weight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+::: {.section-hero}
+
+# AI & Priority Areas
+
+This section combines unsupervised machine learning with spatial priority screening to identify recurring urban profiles across Riyadh and examine how those profiles relate to areas of higher greening priority.
+
+K-Means clustering is used to discover groups of 500 m grid cells with similar combinations of land surface temperature, vegetation, population, and building coverage. A separate weighted priority score is then used to identify areas where higher heat, lower vegetation, greater population exposure, and stronger built intensity overlap.
+
+:::
+
+::: {.analysis-section}
+
+## Urban Cluster Profiles
+
+K-Means clustering grouped the 500 m grid cells into five recurring urban profiles based on four standardized variables: mean land surface temperature, mean NDVI, estimated population, and building coverage.
+
+The clustering is unsupervised, meaning the algorithm was not given predefined labels. The resulting groups were interpreted after clustering based on their average characteristics.
+
+<div class="method-note">
+
+**Machine-learning role:** K-Means is the unsupervised machine-learning component of the project. It identifies recurring combinations of urban conditions without assigning greening priority directly.
+
+</div>
+
+<iframe
+  src="assets/maps/Riyadh_AI_Clusters_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Urban Cluster Profiles Map of Riyadh">
+</iframe>
+
+:::
+
+::: {.analysis-section}
+
+## AI-Assisted Priority Interpretation
+
+The AI-assisted analysis examines how strongly each K-Means urban profile is associated with cells classified as **High** or **Very High** greening priority.
+
+The strongest associations occur in the **Hot Dense Built-Up** and **Dense Populated Urban** profiles. This provides an additional interpretation layer by showing which recurring urban conditions are most commonly linked with higher intervention priority.
+
+<div class="method-note">
+
+**Important distinction:** this analysis does not replace or recalculate the greening priority score. It uses the K-Means results to interpret how AI-derived urban profiles relate to the independently calculated priority levels.
+
+</div>
+
+<iframe
+  src="assets/maps/Riyadh_AI_Assisted_Priority_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive AI-Assisted Priority Association Map of Riyadh">
+</iframe>
+
+:::
+
+::: {.map-section}
+
+## Greening Intervention Priority
+
+The final greening priority score combines four normalized indicators.
+
+<div class="weight-grid">
+
+<div class="weight-card">
+<span class="weight">35%</span>
+<span class="label">Land Surface Temperature</span>
+</div>
+
+<div class="weight-card">
+<span class="weight">30%</span>
+<span class="label">Low Vegetation</span>
+</div>
+
+<div class="weight-card">
+<span class="weight">25%</span>
+<span class="label">Population Exposure</span>
+</div>
+
+<div class="weight-card">
+<span class="weight">10%</span>
+<span class="label">Building Coverage</span>
+</div>
+
+</div>
+
+Higher-priority cells therefore represent locations where hotter surface conditions, limited vegetation, population concentration, and stronger built intensity overlap most strongly.
+
+<div class="method-note">
+
+The priority map is intended as a **spatial screening tool for further evaluation**, not as a direct tree-planting recommendation. Local site conditions, land ownership, infrastructure, water availability, and planning constraints would need to be assessed before any intervention.
+
+</div>
+
+<iframe
+  src="assets/maps/Riyadh_Greening_Priority_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Urban Greening Intervention Priority Map of Riyadh">
+</iframe>
+
+:::

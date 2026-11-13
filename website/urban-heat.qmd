@@ -1,0 +1,75 @@
+---
+page-layout: full
+toc: false
+---
+
+<style>
+.section-hero,
+.map-section {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 92vw);
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+}
+
+.section-hero {
+  padding: 3rem 2rem 2rem 2rem;
+}
+
+.map-section {
+  padding: 1rem 2rem 4rem 2rem;
+}
+
+.section-hero h1,
+.map-section h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-hero p,
+.map-section > p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.interactive-map-frame {
+  width: min(1100px, 92vw);
+  height: 720px;
+  margin: 2rem auto 0 auto;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(23, 77, 56, 0.12);
+  display: block;
+}
+</style>
+
+::: {.section-hero}
+
+# Urban Heat in Riyadh
+
+Summer heat is not distributed evenly across Riyadh. Using Landsat Collection 2 Level-2 imagery, this section maps land surface temperature across the study area and highlights where the urban surface is relatively hotter or cooler. These thermal patterns provide the basis for identifying areas where heat exposure may overlap with limited vegetation, population concentration, and dense development.
+
+:::
+
+::: {.map-section}
+
+## Explore Land Surface Temperature
+
+Land surface temperature (LST) represents the temperature of the ground and built surfaces observed by the satellite rather than air temperature. Across the final 500 m analysis grid, mean LST is approximately **51.1°C**, with grid-cell averages ranging from about **40.7°C to 57.7°C**.
+
+Use the interactive map below to zoom, pan, toggle layers, and click anywhere within the Riyadh study area to inspect the local land surface temperature.
+
+<iframe
+  src="assets/maps/Riyadh_LST_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Land Surface Temperature Map of Riyadh">
+</iframe>
+
+:::

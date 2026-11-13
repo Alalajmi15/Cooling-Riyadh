@@ -1,0 +1,43 @@
+# =========================================================
+# Cooling Riyadh - Git Ignore
+# =========================================================
+
+# Raw / heavy satellite data
+Data/landsat/
+
+# Raw Microsoft building footprint tiles
+Data/building_footprints/riyadh_tiles/
+
+# Large processed building footprint geometry
+Data/building_footprints/Riyadh_Building_Footprints.gpkg
+
+# Large population raster
+Data/Population/*.tif
+
+# Original global GHS dataset
+GHS_UCDB_GLOBE_R2024A_V1_2/
+GHS_UCDB_GLOBE_R2024A_V1_2.zip
+
+# Large raster outputs
+outputs/rasters/
+
+# Quarto generated site
+website/_site/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+~$*

@@ -1,0 +1,93 @@
+---
+page-layout: full
+toc: false
+---
+
+<style>
+.section-hero,
+.map-section {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 92vw);
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+}
+
+.section-hero {
+  padding: 3rem 2rem 2rem 2rem;
+}
+
+.map-section {
+  padding: 1rem 2rem 4rem 2rem;
+}
+
+.section-hero h1,
+.map-section h2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-hero p,
+.map-section > p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.interactive-map-frame {
+  width: min(1100px, 92vw);
+  height: 720px;
+  margin: 2rem auto 0 auto;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(23, 77, 56, 0.12);
+  display: block;
+}
+</style>
+
+::: {.section-hero}
+
+# Vegetation & Buildings
+
+Vegetation and the built environment are two important components of Riyadh's urban form. This section explores the spatial distribution of vegetation using satellite-derived NDVI and examines building coverage across a 500 m analysis grid.
+
+Together, these layers help describe where vegetation is limited and where the built environment is more concentrated.
+
+:::
+
+::: {.map-section}
+
+## Explore Vegetation Presence
+
+The Normalized Difference Vegetation Index (NDVI) is used as a satellite-derived indicator of vegetation presence. Higher NDVI values generally indicate stronger vegetation signals, while lower values indicate limited or sparse vegetation.
+
+Use the interactive map below to zoom, pan, toggle layers, and click anywhere within the Riyadh study area to inspect the local NDVI value and vegetation-presence category.
+
+<iframe
+  src="assets/maps/Riyadh_NDVI_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Vegetation Presence Map of Riyadh">
+</iframe>
+
+:::
+
+::: {.map-section}
+
+## Explore Building Coverage
+
+Building coverage represents the share of each 500 m grid cell occupied by building footprints. The layer was derived from Microsoft Building Footprints and summarizes the spatial intensity of the built environment across Riyadh.
+
+Use the interactive map below to explore individual grid cells. Clicking a cell displays its building coverage, coverage category, building count, and total building footprint area.
+
+<iframe
+  src="assets/maps/Riyadh_Building_Coverage_Interactive.html"
+  class="interactive-map-frame"
+  title="Interactive Building Coverage Map of Riyadh">
+</iframe>
+
+:::

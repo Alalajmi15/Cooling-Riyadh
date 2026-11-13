@@ -1,0 +1,415 @@
+/* =========================================================
+   Cooling Riyadh — Website Design System
+   ========================================================= */
+
+:root {
+  --saudi-green: #174D38;
+  --saudi-green-dark: #103A2B;
+  --saudi-gold: #C5A45A;
+  --ivory: #F0E7D4;
+  --paper: #FAF7F0;
+  --charcoal: #2B2B2B;
+  --muted: #65766D;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: var(--charcoal);
+
+  font-family:
+    "Segoe UI",
+    "Aptos",
+    Arial,
+    sans-serif;
+}
+
+
+/* Remove Quarto content restrictions */
+
+.page-columns,
+main.content,
+#quarto-content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+
+.navbar {
+  background-color: var(--saudi-green) !important;
+  border-bottom: 2px solid var(--saudi-gold);
+  min-height: 68px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar > .container-fluid,
+.navbar > .container-xxl {
+  max-width: none !important;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
+/* Brand */
+
+.navbar-brand {
+  color: var(--ivory) !important;
+
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+
+/* Center navigation */
+
+.navbar-collapse {
+  display: flex !important;
+  justify-content: center !important;
+  position: relative;
+}
+
+.navbar-nav {
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  gap: 0.65rem;
+}
+
+
+/* Navigation links */
+
+.navbar-nav .nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 68px;
+
+  padding: 0 0.95rem !important;
+
+  color: rgba(240, 231, 212, 0.9) !important;
+
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+}
+
+
+/* Active page */
+
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+
+.navbar-nav .nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12%;
+  right: 12%;
+  bottom: 0;
+
+  height: 4px;
+
+  background-color: var(--saudi-gold);
+
+  border-radius: 4px 4px 0 0;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(1400px, 94vw);
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding:
+    3rem
+    2rem
+    4rem
+    2rem;
+
+  text-align: center;
+}
+
+
+/* Banner */
+
+.hero-banner {
+  display: block;
+
+  width: min(1200px, 88vw);
+  height: auto;
+
+  margin:
+    0
+    auto
+    3rem
+    auto;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(23, 77, 56, 0.14);
+}
+
+
+/* Main title */
+
+.hero h1 {
+  margin:
+    0
+    auto
+    0.8rem
+    auto;
+
+  color: var(--saudi-green);
+
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+
+  font-size: 3.25rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* Academic title */
+
+.hero h2 {
+  max-width: 1150px;
+
+  margin:
+    0
+    auto
+    1.8rem
+    auto;
+
+  color: var(--saudi-gold);
+
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* Introduction */
+
+.hero p {
+  max-width: 980px;
+
+  margin:
+    0
+    auto;
+
+  color: var(--charcoal);
+
+  font-size: 1.08rem;
+  line-height: 1.85;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  color: var(--saudi-green);
+}
+
+a {
+  color: var(--saudi-green);
+}
+
+a:hover {
+  color: var(--saudi-gold);
+}
+
+.small,
+.text-muted {
+  color: var(--muted) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar-collapse {
+    display: block !important;
+  }
+
+  .navbar-nav .nav-link {
+    min-height: 48px;
+  }
+
+  .hero {
+    width: 96vw;
+
+    padding:
+      2rem
+      1rem
+      3rem
+      1rem;
+  }
+
+  .hero-banner {
+    width: 94vw;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero h2 {
+    font-size: 1.25rem;
+  }
+
+}
+/* =========================================================
+   SECTION HERO
+   ========================================================= */
+
+.section-hero {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.section-hero h1 {
+  margin: 0 0 1rem 0;
+  color: var(--saudi-green);
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.section-hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+}
+
+
+/* =========================================================
+   MAP SECTION
+   ========================================================= */
+
+.map-section {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 1rem 2rem 4rem 2rem;
+}
+
+.map-section h2 {
+  text-align: center;
+  color: var(--saudi-green);
+  font-family:
+    "Palatino Linotype",
+    "Book Antiqua",
+    Georgia,
+    serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.map-section > p {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  line-height: 1.75;
+  color: var(--charcoal);
+}
+
+.map-placeholder {
+  max-width: 1050px;
+  min-height: 480px;
+  margin: 0 auto;
+  border: 1px dashed var(--saudi-gold);
+  border-radius: 14px;
+  background-color: var(--paper);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 8px 24px rgba(23, 77, 56, 0.06);
+}
