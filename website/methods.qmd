@@ -182,6 +182,49 @@ toc: false
 }
 
 /* ---------------------------------------------------------
+   Tool cards
+--------------------------------------------------------- */
+
+.tools-grid {
+  width: min(1050px, 92vw);
+  margin: 1.6rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.tool-card {
+  background: #FAF7F0;
+  border: 1px solid #E3D6B8;
+  border-radius: 12px;
+  padding: 1.25rem 1.3rem;
+  text-align: left;
+  box-shadow: 0 5px 14px rgba(23, 77, 56, 0.06);
+}
+
+.tool-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  color: #174D38;
+  font-size: 1.08rem;
+}
+
+.tool-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tool-card li {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+  color: #2B2B2B;
+}
+
+.tool-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
    Notes
 --------------------------------------------------------- */
 
@@ -238,6 +281,7 @@ toc: false
 
 @media (max-width: 800px) {
   .data-grid,
+  .tools-grid,
   .limitations-grid {
     grid-template-columns: 1fr;
   }
@@ -445,6 +489,58 @@ The resulting urban profiles were then compared with High and Very High greening
 <div class="method-note">
 
 The machine-learning analysis supports interpretation of recurring urban conditions. It does **not** generate or replace the weighted greening priority score.
+
+</div>
+
+:::
+
+::: {.methods-section}
+
+## Tools Used
+
+The project was completed using a combination of geospatial analysis, data science, visualization, and web-development tools.
+
+<div class="tools-grid">
+
+<div class="tool-card">
+
+### Geospatial Analysis
+
+- **Python** — primary programming language for the geospatial data science workflow.
+- **GeoPandas** — vector data processing, including the Riyadh boundary, 500 m grid, building footprints, and spatial operations.
+- **Rasterio** — raster processing for Landsat, NDVI, Land Surface Temperature, and WorldPop data.
+- **QGIS** — spatial data inspection, coordinate-system checks, layer visualization, and quality control of intermediate and final spatial outputs.
+
+</div>
+
+<div class="tool-card">
+
+### Data Analysis & Machine Learning
+
+- **Pandas** — tabular data preparation, integration, summary statistics, and CSV outputs.
+- **NumPy** — numerical calculations and array operations used throughout the analysis.
+- **Scikit-learn** — StandardScaler and K-Means clustering for identifying recurring urban profiles.
+
+</div>
+
+<div class="tool-card">
+
+### Visualization
+
+- **Matplotlib** — static analytical figures and maps used throughout the notebooks.
+- **Folium** — interactive web maps for LST, NDVI, building coverage, population, clusters, and greening priority.
+
+</div>
+
+<div class="tool-card">
+
+### Development & Workflow
+
+- **Jupyter Notebook** — organization and execution of the main analytical workflow.
+- **Quarto** — construction and rendering of the bilingual project website.
+- **GitHub / GitHub Desktop** — version control, repository management, project documentation, and GitHub Pages deployment.
+
+</div>
 
 </div>
 

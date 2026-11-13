@@ -458,6 +458,49 @@ body.arabic-page .navbar-brand img {
 }
 
 /* ---------------------------------------------------------
+   Tool cards
+--------------------------------------------------------- */
+
+.tools-grid {
+  width: min(1050px, 92vw);
+  margin: 1.6rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.tool-card {
+  background: #FAF7F0;
+  border: 1px solid #E3D6B8;
+  border-radius: 12px;
+  padding: 1.25rem 1.3rem;
+  text-align: left;
+  box-shadow: 0 5px 14px rgba(23, 77, 56, 0.06);
+}
+
+.tool-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  color: #174D38;
+  font-size: 1.08rem;
+}
+
+.tool-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tool-card li {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+  color: #2B2B2B;
+}
+
+.tool-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
    Notes
 --------------------------------------------------------- */
 
@@ -514,6 +557,7 @@ body.arabic-page .navbar-brand img {
 
 @media (max-width: 800px) {
   .data-grid,
+  .tools-grid,
   .limitations-grid {
     grid-template-columns: 1fr;
   }
@@ -681,6 +725,44 @@ AI-Assisted Interpretation
 <p>The resulting urban profiles were then compared with High and Very High greening-priority cells to create the <strong>AI-assisted priority interpretation</strong>.</p>
 <div class="method-note">
 <p>The machine-learning analysis supports interpretation of recurring urban conditions. It does <strong>not</strong> generate or replace the weighted greening priority score.</p>
+</div>
+</section>
+<section id="tools-used" class="level2 methods-section">
+<h2 class="anchored" data-anchor-id="tools-used">Tools Used</h2>
+<p>The project was completed using a combination of geospatial analysis, data science, visualization, and web-development tools.</p>
+<div class="tools-grid">
+<section id="geospatial-analysis" class="level3 tool-card">
+<h3 class="anchored" data-anchor-id="geospatial-analysis">Geospatial Analysis</h3>
+<ul>
+<li><strong>Python</strong> — primary programming language for the geospatial data science workflow.</li>
+<li><strong>GeoPandas</strong> — vector data processing, including the Riyadh boundary, 500 m grid, building footprints, and spatial operations.</li>
+<li><strong>Rasterio</strong> — raster processing for Landsat, NDVI, Land Surface Temperature, and WorldPop data.</li>
+<li><strong>QGIS</strong> — spatial data inspection, coordinate-system checks, layer visualization, and quality control of intermediate and final spatial outputs.</li>
+</ul>
+</section>
+<section id="data-analysis-machine-learning" class="level3 tool-card">
+<h3 class="anchored" data-anchor-id="data-analysis-machine-learning">Data Analysis &amp; Machine Learning</h3>
+<ul>
+<li><strong>Pandas</strong> — tabular data preparation, integration, summary statistics, and CSV outputs.</li>
+<li><strong>NumPy</strong> — numerical calculations and array operations used throughout the analysis.</li>
+<li><strong>Scikit-learn</strong> — StandardScaler and K-Means clustering for identifying recurring urban profiles.</li>
+</ul>
+</section>
+<section id="visualization" class="level3 tool-card">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<ul>
+<li><strong>Matplotlib</strong> — static analytical figures and maps used throughout the notebooks.</li>
+<li><strong>Folium</strong> — interactive web maps for LST, NDVI, building coverage, population, clusters, and greening priority.</li>
+</ul>
+</section>
+<section id="development-workflow" class="level3 tool-card">
+<h3 class="anchored" data-anchor-id="development-workflow">Development &amp; Workflow</h3>
+<ul>
+<li><strong>Jupyter Notebook</strong> — organization and execution of the main analytical workflow.</li>
+<li><strong>Quarto</strong> — construction and rendering of the bilingual project website.</li>
+<li><strong>GitHub / GitHub Desktop</strong> — version control, repository management, project documentation, and GitHub Pages deployment.</li>
+</ul>
+</section>
 </div>
 </section>
 <section id="important-limitations" class="level2 methods-section">

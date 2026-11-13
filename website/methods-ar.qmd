@@ -60,30 +60,44 @@ body {
   line-height: 2;
 }
 
-.source-grid {
+.source-grid,
+.tools-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin: 1.4rem 0 2rem 0;
 }
 
-.source-card {
+.source-card,
+.tool-card {
   background: #FAF7F0;
   border: 1px solid #E3D6B8;
   border-radius: 14px;
   padding: 1.25rem;
 }
 
-.source-card h3 {
+.source-card h3,
+.tool-card h3 {
   color: #174D38;
   margin: 0 0 0.65rem 0;
   font-size: 1.1rem;
 }
 
-.source-card p {
+.source-card p,
+.tool-card p,
+.tool-card li {
   color: #4A4A4A;
   line-height: 1.9;
+}
+
+.tool-card ul {
   margin: 0;
+  padding-right: 1.2rem;
+  padding-left: 0;
+}
+
+.tool-card li {
+  margin-bottom: 0.7rem;
 }
 
 .workflow {
@@ -190,6 +204,7 @@ body {
 @media (max-width: 800px) {
 
   .source-grid,
+  .tools-grid,
   .workflow,
   .weight-grid {
     grid-template-columns: 1fr;
@@ -426,6 +441,70 @@ body {
 
 
 <div class="ar-section-title">
+الأدوات المستخدمة
+</div>
+
+<div class="ar-text">
+
+تم تنفيذ المشروع باستخدام مجموعة من أدوات التحليل الجغرافي،
+وعلوم البيانات، والتعلم الآلي، والخرائط التفاعلية، وتطوير الموقع.
+
+</div>
+
+<div class="tools-grid">
+
+<div class="tool-card">
+
+<h3>التحليل الجغرافي المكاني</h3>
+
+<ul>
+<li><strong>Python</strong> — اللغة الأساسية التي استخدمت لتنفيذ سير العمل الكامل للمشروع.</li>
+<li><strong>GeoPandas</strong> — لمعالجة البيانات المتجهة مثل حدود الرياض، وشبكة 500 متر، وبصمات المباني، والعمليات المكانية.</li>
+<li><strong>Rasterio</strong> — لقراءة ومعالجة بيانات الراستر مثل Landsat وNDVI وحرارة سطح الأرض وWorldPop.</li>
+<li><strong>QGIS</strong> — لفحص الطبقات المكانية، ومراجعة أنظمة الإحداثيات، واستعراض النتائج، وإجراء فحوصات الجودة على البيانات المكانية.</li>
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<h3>تحليل البيانات والتعلم الآلي</h3>
+
+<ul>
+<li><strong>Pandas</strong> — لتنظيف الجداول، ودمج البيانات، والإحصاءات الوصفية، وإنتاج ملفات CSV.</li>
+<li><strong>NumPy</strong> — للحسابات العددية وعمليات المصفوفات المستخدمة في التحليل.</li>
+<li><strong>Scikit-learn</strong> — لاستخدام StandardScaler وخوارزمية K-Means لتحديد الأنماط الحضرية المتكررة.</li>
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<h3>التصور والخرائط</h3>
+
+<ul>
+<li><strong>Matplotlib</strong> — لإنشاء الرسومات والخرائط التحليلية الثابتة داخل دفاتر المشروع.</li>
+<li><strong>Folium</strong> — لإنشاء الخرائط التفاعلية الخاصة بالحرارة، وNDVI، والمباني، والسكان، والمجموعات، والأولوية.</li>
+</ul>
+
+</div>
+
+<div class="tool-card">
+
+<h3>التطوير وإدارة المشروع</h3>
+
+<ul>
+<li><strong>Jupyter Notebook</strong> — لتنظيم وتنفيذ خطوات التحليل الرئيسية ضمن دفاتر منفصلة.</li>
+<li><strong>Quarto</strong> — لبناء الموقع ثنائي اللغة وتحويل ملفات QMD إلى صفحات HTML.</li>
+<li><strong>GitHub / GitHub Desktop</strong> — لإدارة الإصدارات، وتنظيم المستودع، وتوثيق المشروع، ونشر الموقع باستخدام GitHub Pages.</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="ar-section-title">
 القيود الرئيسية
 </div>
 
@@ -442,29 +521,6 @@ body {
 كما أن حرارة سطح الأرض المستخرجة من الأقمار الصناعية
 لا تمثل درجة حرارة الهواء مباشرة،
 وبيانات السكان والمباني هي تقديرات مكانية قد تحتوي على درجات مختلفة من عدم اليقين.
-
-</div>
-
-
-<div class="ar-section-title">
-الأدوات المستخدمة
-</div>
-
-<div class="ar-text">
-
-تم تنفيذ المشروع باستخدام مجموعة من أدوات علوم البيانات الجغرافية المكانية،
-منها:
-
-- Python
-- GeoPandas
-- Rasterio
-- Shapely
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Folium
-- Quarto
 
 </div>
 
