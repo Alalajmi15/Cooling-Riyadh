@@ -307,43 +307,37 @@ This notebook creates interactive maps for:
 This notebook compares the K-Means urban profiles with the final priority classes and examines how strongly each profile is associated with High and Very High priority areas.
 
 ---
-
 ## Technology Stack
 
-### Spatial Analysis
+### Geospatial Analysis
 
-- Python
-- GeoPandas
-- Rasterio
-- Shapely
-- PyProj
-- Rasterstats
+- **Python** — primary programming language for the geospatial data science workflow.
+- **GeoPandas** — used for vector spatial data, including the Riyadh boundary, the 500 m analysis grid, building footprints, and spatial operations.
+- **Rasterio** — used to read and process raster datasets, including Landsat imagery, NDVI, Land Surface Temperature, and WorldPop population data.
+- **QGIS** — used to inspect spatial datasets, review coordinate systems and layers, visualize intermediate results, and perform quality checks on spatial outputs.
 
 ### Data Analysis & Machine Learning
 
-- Pandas
-- NumPy
-- Scikit-learn
-- SciPy
+- **Pandas** — used for tabular data preparation, integration, summary statistics, and CSV outputs.
+- **NumPy** — used for numerical calculations and array operations throughout the analysis.
+- **Scikit-learn** — used for StandardScaler and K-Means clustering to identify recurring urban profiles across Riyadh.
 
 ### Visualization
 
-- Matplotlib
-- Folium
-- Branca
+- **Matplotlib** — used to create static analytical figures and maps within the notebooks.
+- **Folium** — used to create the interactive maps presented on the project website.
 
-### Web Development
+### Development & Workflow
 
-- Quarto
-- HTML
-- CSS
+- **Jupyter Notebook** — used to organize and run the main analytical workflow across the project notebooks.
+- **Quarto** — used to build and render the bilingual project website.
+- **GitHub / GitHub Desktop** — used for version control, repository management, project documentation, and deployment through GitHub Pages.
 
 ### Spatial Data Formats
 
 - GeoPackage
 - GeoTIFF
 - CSV
-
 ---
 
 ## Reproducibility
